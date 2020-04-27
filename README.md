@@ -11,7 +11,7 @@ https://www.wykop.pl/dla-programistow/twoje-aplikacje/
 
 ## How to use it
 
-1) Please update file wykop.properties - add your credentials
+1) Please update file [wykop.properties](src/main/resources/wykop.properties) - add your credentials
 
 2) From command line: 
 ```
