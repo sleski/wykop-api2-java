@@ -14,7 +14,7 @@ https://www.wykop.pl/dla-programistow/twoje-aplikacje/
 1) Please update file wykop.properties - add your credentials
 
 2) From command line: 
-
+```
 mvn clean install exec:java -Dexec.mainClass="pl.wykop.App" -Dexec.cleanupDaemonThreads=false
-
+```
 3) Enjoy ( ͡° ͜ʖ ͡° )つ──☆*:・ﾟ
