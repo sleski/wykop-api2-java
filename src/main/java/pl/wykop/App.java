@@ -15,7 +15,7 @@ import java.util.concurrent.CompletableFuture;
 import static pl.wykop.Credentials.WYKOP;
 
 /**
- * Hello world!
+ * Login to Wykop.
  */
 public class App {
 
@@ -48,7 +48,6 @@ public class App {
         HttpResponse<String> response = httpResponseCompletableFuture.join();
         System.out.println("Resoonse Status = " + response.statusCode());
         System.out.println("Resoonse Body = " + response.body());
-
 
     }
 
