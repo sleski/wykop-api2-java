@@ -17,4 +17,4 @@ https://www.wykop.pl/dla-programistow/twoje-aplikacje/
 ```
 mvn clean install exec:java -Dexec.mainClass="pl.wykop.App" -Dexec.cleanupDaemonThreads=false
 ```
-3) Enjoy ( ͡° ͜ʖ ͡° )つ──☆*:・ﾟ
+3) Enjoy **( ͡° ͜ʖ ͡° )つ──☆*:・ﾟ**
