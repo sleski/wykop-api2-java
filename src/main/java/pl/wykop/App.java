@@ -28,7 +28,7 @@ public class App {
         var stringToMd5Hash = new StringBuilder();
         var client = HttpClient.newHttpClient();
 
-        Map<Object, Object> data = new HashMap<>();
+        var data = new HashMap<>();
         data.put("login", WYKOP.login());
         data.put("accountkey", WYKOP.accountkey());
 
@@ -45,7 +45,7 @@ public class App {
                 .build();
 
         CompletableFuture<HttpResponse<String>> httpResponseCompletableFuture = client.sendAsync(request, HttpResponse.BodyHandlers.ofString());
-        HttpResponse<String> response = httpResponseCompletableFuture.join();
+        var response = httpResponseCompletableFuture.join();
         System.out.println("Resoonse Status = " + response.statusCode());
         System.out.println("Resoonse Body = " + response.body());
 
