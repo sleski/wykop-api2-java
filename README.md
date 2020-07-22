@@ -9,12 +9,16 @@ https://www.wykop.pl/dla-programistow/apiv2docs/podpisywanie-zadan/
 
 https://www.wykop.pl/dla-programistow/twoje-aplikacje/
 
+https://golb.hplar.ch/2019/01/java-11-http-client.html
+
 ## How to use it
 
 1) Please update file [wykop.properties](src/main/resources/wykop.properties) - add your credentials
 
 2) From command line: 
 ```
-mvn clean install exec:java -Dexec.mainClass="pl.wykop.App" -Dexec.cleanupDaemonThreads=false
+mvn clean install exec:java -Dexec.mainClass="pl.wykop.Login" -Dexec.cleanupDaemonThreads=false
 ```
 3) Enjoy ( ͡° ͜ʖ ͡° )つ──☆*:・ﾟ
+
+

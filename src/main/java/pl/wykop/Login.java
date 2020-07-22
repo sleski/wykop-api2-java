@@ -1,5 +1,8 @@
 package pl.wykop;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.codec.digest.DigestUtils;
 
 import java.net.URI;
@@ -17,11 +20,11 @@ import static pl.wykop.Credentials.WYKOP;
 /**
  * Login to Wykop.
  */
-public class App {
+public class Login {
 
     final static String LOGIN_URL = "https://a2.wykop.pl/login/index/appkey/";
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws JsonProcessingException {
         System.out.println("----------- login to wykop via api2 -----------");
         System.out.println("( ͡°( ͡° ͜ʖ( ͡° ͜ʖ ͡°)ʖ ͡°) ͡°)");
 
@@ -32,7 +35,7 @@ public class App {
         data.put("login", WYKOP.login());
         data.put("accountkey", WYKOP.accountkey());
 
-        String urlToPost = LOGIN_URL + WYKOP.appkey() + "/";
+        var urlToPost = LOGIN_URL + WYKOP.appkey() + "/";
 
         stringToMd5Hash.append(WYKOP.secretkey()).append(urlToPost)
                 .append(WYKOP.login()).append(",").append(WYKOP.accountkey());
@@ -46,9 +49,12 @@ public class App {
 
         CompletableFuture<HttpResponse<String>> httpResponseCompletableFuture = client.sendAsync(request, HttpResponse.BodyHandlers.ofString());
         var response = httpResponseCompletableFuture.join();
+        JsonNode jsonNode = new ObjectMapper().readTree(response.body());
+        if (jsonNode.has("data")) {
+            System.out.println("userkey = " + jsonNode.get("data").get("userkey"));
+        }
         System.out.println("Resoonse Status = " + response.statusCode());
         System.out.println("Resoonse Body = " + response.body());
-
     }
 
 
