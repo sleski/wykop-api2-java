@@ -19,6 +19,9 @@ https://golb.hplar.ch/2019/01/java-11-http-client.html
 ```
 mvn clean install exec:java -Dexec.mainClass="pl.wykop.Login" -Dexec.cleanupDaemonThreads=false
 ```
+
+//TODO login, save userkey to new properties, add post from command line (text provided as param)
+
 3) Enjoy ( ͡° ͜ʖ ͡° )つ──☆*:・ﾟ
 
 
