@@ -25,9 +25,6 @@ mvn exec:java -Dexec.mainClass="pl.wykop.Mikroblog" -Dexec.args="{copy_user_key_
 
 
 ```
-
-//TODO login, save userkey to new properties, add post from command line (text provided as param)
-
 3) Enjoy ( ͡° ͜ʖ ͡° )つ──☆*:・ﾟ
 
 
