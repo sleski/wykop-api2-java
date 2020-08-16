@@ -27,7 +27,7 @@ public class Mikroblog extends Common{
 		var userkey = args[0];
 		var stringToMd5Hash = new StringBuilder();
 		var client = HttpClient.newHttpClient();
-		var message = "The wykop api2 works great! \n #wykopapi2java";
+		var message = "The wykop api2 works great! \n ( ͡°( ͡° ͜ʖ( ͡° ͜ʖ ͡°)ʖ ͡°) ͡°) \n #wykopapi2java";
 		var data = new HashMap<>();
 		data.put("body", message);
 
