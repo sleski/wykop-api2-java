@@ -17,7 +17,13 @@ https://golb.hplar.ch/2019/01/java-11-http-client.html
 
 2) From command line: 
 ```
-mvn clean install exec:java -Dexec.mainClass="pl.wykop.Login" -Dexec.cleanupDaemonThreads=false
+mvn clean install
+
+mvn exec:java -Dexec.mainClass="pl.wykop.Login" -Dexec.cleanupDaemonThreads=false
+
+mvn exec:java -Dexec.mainClass="pl.wykop.Mikroblog" -Dexec.args="{copy_user_key_from_previous_command}" -Dexec.cleanupDaemonThreads=false
+
+
 ```
 3) Enjoy ( ͡° ͜ʖ ͡° )つ──☆*:・ﾟ
 

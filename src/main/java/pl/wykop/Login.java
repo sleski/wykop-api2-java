@@ -1,18 +1,14 @@
 package pl.wykop;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.apache.commons.codec.digest.DigestUtils;
 
+import java.io.IOException;
 import java.net.URI;
-import java.net.URLEncoder;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
-import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 
 import static pl.wykop.Credentials.WYKOP;
@@ -20,11 +16,11 @@ import static pl.wykop.Credentials.WYKOP;
 /**
  * Login to Wykop.
  */
-public class Login {
+public class Login extends Common{
 
     final static String LOGIN_URL = "https://a2.wykop.pl/login/index/appkey/";
 
-    public static void main(String[] args) throws JsonProcessingException {
+    public static void main(String[] args) throws IOException {
         System.out.println("----------- login to wykop via api2 -----------");
         System.out.println("( ͡°( ͡° ͜ʖ( ͡° ͜ʖ ͡°)ʖ ͡°) ͡°)");
 
@@ -51,28 +47,11 @@ public class Login {
         var response = httpResponseCompletableFuture.join();
         JsonNode jsonNode = new ObjectMapper().readTree(response.body());
         if (jsonNode.has("data")) {
-            System.out.println("userkey = " + jsonNode.get("data").get("userkey"));
+            String userkey = jsonNode.get("data").get("userkey").toString();
+            System.out.println("userkey = " + userkey);
         }
         System.out.println("Resoonse Status = " + response.statusCode());
         System.out.println("Resoonse Body = " + response.body());
-    }
-
-
-    private static HttpRequest.BodyPublisher ofFormData(Map<Object, Object> data) {
-        var builder = new StringBuilder();
-        for (Map.Entry<Object, Object> entry : data.entrySet()) {
-            if (builder.length() > 0) {
-                builder.append("&");
-            }
-            builder.append(URLEncoder.encode(entry.getKey().toString(), StandardCharsets.UTF_8));
-            builder.append("=");
-            builder.append(URLEncoder.encode(entry.getValue().toString(), StandardCharsets.UTF_8));
-        }
-        return HttpRequest.BodyPublishers.ofString(builder.toString());
-    }
-
-    private static String encrypt(String in) {
-        return DigestUtils.md5Hex(in);
     }
 
 }
