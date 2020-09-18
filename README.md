@@ -1,3 +1,6 @@
+![](https://github.com/sleski/wykop-api2-java/workflows/wykop-api2-java/badge.svg)
+
+
 # wykop-api2-java
 Few examples how to play with wykop api2 from java.
 
