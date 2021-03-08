@@ -8,7 +8,7 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.concurrent.CompletableFuture;
 
 import static pl.wykop.Credentials.WYKOP;
@@ -27,7 +27,7 @@ public class Login extends Common{
         var stringToMd5Hash = new StringBuilder();
         var client = HttpClient.newHttpClient();
 
-        var data = new HashMap<>();
+        var data = new LinkedHashMap<>();
         data.put("login", WYKOP.login());
         data.put("accountkey", WYKOP.accountkey());
 
